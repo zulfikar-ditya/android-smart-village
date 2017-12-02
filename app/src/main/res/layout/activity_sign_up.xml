@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.smartvillage.Activity.SignUpActivity"
+    android:background="@drawable/bgregister"
+    >
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_NIK_signup"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:textColorHint="#000"
+        >
+        <EditText
+            android:id="@+id/Signup_NIK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="NIK"
+            android:inputType="number"
+
+            />
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_fullname"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#000"
+        android:layout_below="@id/layout_NIK_signup"
+        >
+        <EditText
+            android:id="@+id/Signup_fulname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your fullname"
+            android:inputType="textPersonName"
+
+            />
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_password_signup"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textColorHint="#000"
+        android:layout_below="@id/layout_fullname"
+        >
+        <EditText
+            android:id="@+id/Signup_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_Konfirmasi_password_signup"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#000"
+android:layout_below="@id/layout_password_signup"
+        >
+        <EditText
+            android:id="@+id/Signup_Konfimasi_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm password"
+            android:inputType="textPassword"
+
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_signup"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_Konfirmasi_password_signup"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="Sign Up"
+        android:background="@drawable/bgbutton"
+        />
+    <Button
+        android:id="@+id/Button_link_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_signup"
+        android:text="Already have an account?Sign in here"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@null"
+        />
+
+</RelativeLayout>

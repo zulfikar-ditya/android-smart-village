@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.user.smartvillage.Activity.SignInActivity"
+    android:background="@drawable/bgregister">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Layout_nik"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:textColorHint="#000"
+
+        >
+
+        <EditText
+            android:id="@+id/nik"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="NIK"
+            android:inputType="number"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_password"
+        android:layout_below="@id/Layout_nik"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#000"
+    >
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+
+        />
+</android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:background="@drawable/bgbutton"
+        android:id="@+id/button_signin"
+        android:layout_below="@id/layout_password"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/signin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:id="@+id/button_link_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_signin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@null"
+        android:textAllCaps="false"
+        android:text="Don't have an Account?Sign up here"
+        />
+
+</RelativeLayout>
