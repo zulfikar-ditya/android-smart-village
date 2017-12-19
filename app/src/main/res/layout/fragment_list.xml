@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+        !-- TODO: Update blank fragment layout
+     -->
+    <TextView
+        android:id="@+id/nama_pembangunan"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="JEMBATAN SURAMADU"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nama_mitra"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:text="CV Mitra Sejati"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15dp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/gambar_pembangunan"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="15dp"
+        android:src="@drawable/suramadu3"
+        />
+
+    <TextView
+        android:id="@+id/deskripsi_pembangunan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:textColor="@color/black"
+        android:gravity="top"
+        android:text="Suramadu adalah jembatan yang menghubungkan pulau madura dan pulau jawa" />
+
+
+    <TextView
+        android:id="@+id/nama_pembangunan2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="JEMBATAN AMPERA"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/nama_mitra2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:text="CV Mitra Sejati"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15dp"
+        android:textStyle="italic"/>
+
+     <ImageView
+        android:id="@+id/gambar_pembangunan2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="15dp"
+        android:src="@drawable/suramadu3" />
+
+    <TextView
+        android:id="@+id/deskripsi_pembangunan2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:textColor="@color/black"
+        android:gravity="top"
+        android:text="Ampera adalah jembatan yang menghubungkan pulau madura dan pulau jawa" />
+    </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -2,7 +2,6 @@ package com.example.user.smartvillage.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInstaller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.user.smartvillage.Activity.dashboard_user.MainActivity;
 import com.example.user.smartvillage.Controller.AppConfig;
 import com.example.user.smartvillage.Controller.AppController;
 import com.example.user.smartvillage.Controller.SessionManager;
@@ -108,7 +108,7 @@ public class SignInActivity extends AppCompatActivity {
 
                                 //TODO pindah Intent
                                 pDialog.dismiss();
-                                afterlogin = new Intent(SignInActivity.this,MainActivity.class);
+                                afterlogin = new Intent(SignInActivity.this, MainActivity.class);
                                 startActivity(afterlogin);
                                 finish();
                             } else {
