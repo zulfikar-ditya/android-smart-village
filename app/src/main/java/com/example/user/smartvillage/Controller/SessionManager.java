@@ -12,18 +12,16 @@ import java.util.HashMap;
 public class SessionManager {
     // Shared Preferences
     SharedPreferences pref;
-
     Editor editor;
-
     Context _context;
-
     int PRIVATE_MODE = 0;
 
     private static final String PREF_NAME = "UserPref";
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_ID = "id";
-    public static final String KEY_FULLNAME = "fullname";
-    public static final String KEY_NIK = "nik";
+    public static final String KEY_USERNAME = "usernam";
+    public static final String KEY_ROLE = "role";
+    public static final String KEY_TOKEN = "token";
 
     // Constructor
     public SessionManager(Context context){
@@ -35,11 +33,13 @@ public class SessionManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(int id, String fullname, String nik){
+    public void createLoginSession(int id, String username, String role, String token){
         editor.putBoolean(IS_LOGIN, true);
         editor.putInt(KEY_ID, id);
-        editor.putString(KEY_FULLNAME, fullname);
-        editor.putString(KEY_NIK, nik);
+        editor.putString(KEY_USERNAME, username);
+        editor.putString(KEY_ROLE, role);
+        editor.putString(KEY_TOKEN, token);
+
         // commit changes
         editor.commit();
     }
@@ -109,7 +109,26 @@ public class SessionManager {
      * Quick check for login
      * **/
     // Get Login State
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn()
+    {
         return pref.getBoolean(IS_LOGIN, false);
     }
+
+    public int getKeyIdet()
+    {
+      return pref.getInt(KEY_ID,0);
+    }
+
+    public String getKeyUsername() {
+        return pref.getString(KEY_USERNAME,"");
+    }
+
+    public String getKeyRole() {
+        return pref.getString(KEY_ROLE,"");
+    }
+
+    public String getKeyToken() {
+        return pref.getString(KEY_TOKEN,"");
+    }
+
 }

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,10 +19,9 @@ import com.example.user.smartvillage.Activity.dashboard_user.MainActivity;
 import com.example.user.smartvillage.Controller.AppConfig;
 import com.example.user.smartvillage.Controller.AppController;
 import com.example.user.smartvillage.Controller.SessionManager;
-import com.example.user.smartvillage.Modal.User;
+import com.example.user.smartvillage.Model.User;
 import com.example.user.smartvillage.R;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -30,8 +30,8 @@ import java.util.Map;
 public class SignInActivity extends AppCompatActivity {
 
     Button button_signin, button_linksignup;
-    EditText et_nik, et_password;
-    String snik, spassword;
+    EditText et_username, et_password;
+    String susername, spassword;
     Intent afterlogin;
     ProgressDialog pDialog;
     SessionManager sessionManager;
@@ -40,7 +40,7 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        et_nik = (EditText) findViewById(R.id.nik);
+        et_username = (EditText) findViewById(R.id.username);
         et_password = (EditText) findViewById(R.id.password);
         button_signin = (Button) findViewById(R.id.button_signin);
         button_linksignup = (Button) findViewById(R.id.button_link_signup);
@@ -58,11 +58,11 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO LOGIN
-                snik = et_nik.getText().toString().trim();
+                susername = et_username.getText().toString().trim();
                 spassword = et_password.getText().toString().trim();
-                if (!snik.isEmpty() && !spassword.isEmpty())
+                if (!susername.isEmpty() && !spassword.isEmpty())
                 {
-                    doSignIn(snik,spassword);
+                    doSignIn(susername,spassword);
                 }else {
                     Toast.makeText(SignInActivity.this, "data kosong", Toast.LENGTH_SHORT).show();
                 }
@@ -70,7 +70,7 @@ public class SignInActivity extends AppCompatActivity {
         });
 
     }
-    private void doSignIn(final String nik, final String password) {
+    private void doSignIn(final String username, final String password) {
         pDialog = new ProgressDialog(SignInActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
         pDialog.setMessage("Authenticating..");
         pDialog.show();
@@ -79,31 +79,31 @@ public class SignInActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 //                        pDialog.hide();
-
                         try {
                             //converting response to json object
                             JSONObject obj = new JSONObject(response);
                             pDialog.setMessage("Loading...");
                             //if no error in response
-                            if (obj.getInt("code") == 1) {
-                                Toast.makeText(getApplicationContext(), obj.getString("msg"), Toast.LENGTH_SHORT).show();
+                            if (obj.getBoolean("status")) {
+//                                pDialog.dismiss();
+                                Toast.makeText(getApplicationContext(), "login berhasil", Toast.LENGTH_SHORT).show();
 
 //                                JSONObject userJson = obj.getJSONObject("data");
 
                                 User user = new User(
-
-                                        obj.getInt("id"),
-                                        obj.getString("fullname"),
-                                        obj.getString("nik")
+                                        obj.getString("username"),
+                                        obj.getString("access_token"),
+                                        obj.getString("role"),
+                                        obj.getInt("id")
                                 );
 
 
                                 // TODO ambil data ke page selanjutnya
                                 sessionManager.createLoginSession(
                                         user.getId(),
-                                        user.getFullname(),
-                                        user.getNik()
-
+                                        user.getUsername(),
+                                        user.getRole(),
+                                        user.getToken()
                                 );
 
                                 //TODO pindah Intent
@@ -114,8 +114,9 @@ public class SignInActivity extends AppCompatActivity {
                             } else {
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        } catch (Exception e) {
+                            Log.d("Tes", "onResponse: " + e.getMessage());
+//                            e.printStackTrace();
                         }
                     }
                 },
@@ -129,7 +130,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("nik", nik);
+                params.put("username", username);
                 params.put("password", password);
                 return params;
             }

@@ -27,7 +27,7 @@
 
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/layout_fullname"
+        android:id="@+id/layout_username_signup"
         android:layout_width="fill_parent"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -37,10 +37,10 @@
         android:layout_below="@id/layout_NIK_signup"
         >
         <EditText
-            android:id="@+id/Signup_fulname"
+            android:id="@+id/Signup_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your fullname"
+            android:hint="Username"
             android:inputType="textPersonName"
 
             />
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:textColorHint="#000"
-        android:layout_below="@id/layout_fullname"
+        android:layout_below="@id/layout_username_signup"
         >
         <EditText
             android:id="@+id/Signup_password"
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textColorHint="#000"
-android:layout_below="@id/layout_password_signup"
+        android:layout_below="@id/layout_password_signup"
         >
         <EditText
             android:id="@+id/Signup_Konfimasi_password"
@@ -95,6 +95,7 @@ android:layout_below="@id/layout_password_signup"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:text="Sign Up"
+        android:textColor="@color/white"
         android:background="@drawable/bgbutton"
         />
     <Button

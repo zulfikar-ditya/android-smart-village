@@ -1,4 +1,4 @@
-package com.example.user.smartvillage;
+package com.example.user.smartvillage.Fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,16 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.user.smartvillage.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link monitoring.OnFragmentInteractionListener} interface
+ * {@link request.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link monitoring#newInstance} factory method to
+ * Use the {@link request#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class monitoring extends Fragment {
+public class request extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +31,7 @@ public class monitoring extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public monitoring() {
+    public request() {
         // Required empty public constructor
     }
 
@@ -39,11 +41,11 @@ public class monitoring extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment monitoring.
+     * @return A new instance of fragment request.
      */
     // TODO: Rename and change types and number of parameters
-    public static monitoring newInstance(String param1, String param2) {
-        monitoring fragment = new monitoring();
+    public static request newInstance(String param1, String param2) {
+        request fragment = new request();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +66,7 @@ public class monitoring extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        return inflater.inflate(R.layout.fragment_request, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

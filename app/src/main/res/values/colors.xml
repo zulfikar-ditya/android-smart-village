@@ -11,4 +11,6 @@
     <color name="white_greyish">#EEEEEE</color>
     <color name="button_selectorcolor">#9E9E9E</color>
     <color name="grey">#9DACD3</color>
+    <color name="darkgrey">#585F61</color>
+    <color name="softblue">#DDE7EB</color>
 </resources>

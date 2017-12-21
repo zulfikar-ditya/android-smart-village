@@ -1,4 +1,4 @@
-package com.example.user.smartvillage;
+package com.example.user.smartvillage.Fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.user.smartvillage.R;
 
 
 /**
@@ -64,7 +66,11 @@ public class profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
