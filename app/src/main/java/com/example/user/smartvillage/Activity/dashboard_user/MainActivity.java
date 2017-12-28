@@ -7,16 +7,23 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.user.smartvillage.Activity.AboutActivity;
+import com.example.user.smartvillage.Activity.HelpActivity;
+import com.example.user.smartvillage.Activity.SignInActivity;
 import com.example.user.smartvillage.Activity.dashboard_user.list.ListFragment;
-import com.example.user.smartvillage.Activity.dashboard_user.notification.NotificationFragment;
+
 import com.example.user.smartvillage.Activity.dashboard_user.profile.ProfileFragment;
 import com.example.user.smartvillage.Activity.dashboard_user.request.RequestFragment;
+import com.example.user.smartvillage.Controller.SessionManager;
 import com.example.user.smartvillage.R;
 
 import java.util.ArrayList;
@@ -49,15 +56,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
-                            case R.id.setting:
-                                Toast.makeText(MainActivity.this, "ini setting gan", Toast.LENGTH_SHORT).show();
-                                break;
                             case R.id.help:
-                                Toast.makeText(MainActivity.this, "ini help gan", Toast.LENGTH_SHORT).show();
+                                Intent help = new Intent(MainActivity.this, HelpActivity.class);
+                                startActivity(help);
+                                break;
+                            case R.id.about:
+                                Intent about = new Intent(MainActivity.this, AboutActivity.class);
+                                startActivity(about);
                                 break;
                             case R.id.signout:
-                                Toast.makeText(MainActivity.this, "ini sign out gan", Toast.LENGTH_SHORT).show();
-                                break;
+                                Intent signout = new Intent(MainActivity.this, SignInActivity.class);
+                                startActivity(signout);
+                                finish();
+                            break;
                         }
                         return true;
                     }
@@ -70,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         contents_fragment.add(new ListFragment());
         contents_fragment.add(new RequestFragment());
-        contents_fragment.add(new NotificationFragment());
+//        contents_fragment.add(new NotificationFragment());
         contents_fragment.add(new ProfileFragment());
 
         tab_adapter = new DashboardTabAdapter(getSupportFragmentManager(), contents_fragment);

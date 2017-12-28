@@ -10,22 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.example.user.smartvillage.Activity.dashboard_user.MainActivity;
-import com.example.user.smartvillage.Controller.AppConfig;
-import com.example.user.smartvillage.Controller.AppController;
 import com.example.user.smartvillage.Controller.SessionManager;
 import com.example.user.smartvillage.Model.User;
 import com.example.user.smartvillage.R;
+import com.example.user.smartvillage.service.ApiService;
 
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -74,67 +71,25 @@ public class SignInActivity extends AppCompatActivity {
         pDialog = new ProgressDialog(SignInActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
         pDialog.setMessage("Authenticating..");
         pDialog.show();
-        final StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.URL_LOGIN,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-//                        pDialog.hide();
-                        try {
-                            //converting response to json object
-                            JSONObject obj = new JSONObject(response);
-                            pDialog.setMessage("Loading...");
-                            //if no error in response
-                            if (obj.getBoolean("status")) {
-//                                pDialog.dismiss();
-                                Toast.makeText(getApplicationContext(), "login berhasil", Toast.LENGTH_SHORT).show();
 
-//                                JSONObject userJson = obj.getJSONObject("data");
-
-                                User user = new User(
-                                        obj.getString("username"),
-                                        obj.getString("access_token"),
-                                        obj.getString("role"),
-                                        obj.getInt("id")
-                                );
-
-
-                                // TODO ambil data ke page selanjutnya
-                                sessionManager.createLoginSession(
-                                        user.getId(),
-                                        user.getUsername(),
-                                        user.getRole(),
-                                        user.getToken()
-                                );
-
-                                //TODO pindah Intent
-                                pDialog.dismiss();
-                                afterlogin = new Intent(SignInActivity.this, MainActivity.class);
-                                startActivity(afterlogin);
-                                finish();
-                            } else {
-                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (Exception e) {
-                            Log.d("Tes", "onResponse: " + e.getMessage());
-//                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        pDialog.dismiss();
-                        Toast.makeText(getApplicationContext(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
-                    }
-                }) {
+        ApiService.service_post.postSignIn(susername, spassword).enqueue(new Callback<User>() {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("username", username);
-                params.put("password", password);
-                return params;
+            public void onResponse(Call<User> call, retrofit2.Response<User> response) {
+                if(response.body().isStatus()){
+                    pDialog.dismiss();
+                    Intent dashboard = new Intent(SignInActivity.this, MainActivity.class);
+                    startActivity(dashboard);
+                    finish();
+                }else{
+                    Toast.makeText(SignInActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    pDialog.dismiss();
+                }
             }
-        };
-        AppController.getInstance(this).addToRequestQueue(stringRequest);
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }

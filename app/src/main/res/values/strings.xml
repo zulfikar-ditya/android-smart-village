@@ -58,7 +58,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_toolbar">toolbar</string>
+    <string name="about">SmartVillage adalah aplikasi yang memudahkan anda untuk melihat proses pembangunan yang sedang tejadi di desa anda,
 
-    
+        aplikasi ini juga memungkinkan anda untuk memberikan request mengenai pembangunan yang perlu dilakukan di desa anda. </string>
 </resources>
 

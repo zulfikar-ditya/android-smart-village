@@ -5,45 +5,31 @@ package com.example.user.smartvillage.Model;
  */
 
 public class User {
-    private String username, token, role;
+    private String username, access_token, role, message;
+    private boolean status;
     private int id;
-
-    public User(String username, String token, String role, int id) {
-        this.username = username;
-        this.token = token;
-        this.role = role;
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
+    public String getAccess_token() {
+        return access_token;
     }
 
     public String getRole() {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public String getMessage() {
+        return message;
+    }
+
+    public boolean isStatus() {
+        return status;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

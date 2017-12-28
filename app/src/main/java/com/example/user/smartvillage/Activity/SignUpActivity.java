@@ -4,25 +4,27 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.example.user.smartvillage.Controller.AppConfig;
 import com.example.user.smartvillage.Controller.AppController;
+import com.example.user.smartvillage.Model.DefaultModel;
+import com.example.user.smartvillage.Model.User;
 import com.example.user.smartvillage.R;
+import com.example.user.smartvillage.service.ApiService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -46,78 +48,48 @@ public class SignUpActivity extends AppCompatActivity {
         button_link_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO PINDAH INTENT KE SIGNIN
-                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                startActivity(intent);
+                toSignIn();
             }
         });
 
         button_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO SIGNUP
                 snik = et_nik.getText().toString();
                 susername = et_username.getText().toString();
                 spassword = et_password.getText().toString();
                 sconfirmpass = et_confirmpass.getText().toString();
-
-                if (spassword.length() > 7) {
-                    if (spassword.equals(sconfirmpass)) {
-                        doSignUp(snik, susername, spassword);
-                    } else {
-                        Toast.makeText(getApplicationContext(), "confirmasi password tidak sama", Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(SignUpActivity.this, "password harus lebih dari 8", Toast.LENGTH_SHORT).show();
-                }
-
+                doSignUp(snik, susername, spassword, sconfirmpass);
             }
         });
     }
 
-    private void doSignUp(final String snik,final String susername,final String spassword){
+    private void doSignUp(String snik_data, String susername_data, String spassword_data, String sconfirmpass_data){
         final ProgressDialog pDialog = new ProgressDialog(SignUpActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
         pDialog.setMessage("Registering..");
         pDialog.show();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.URL_REGISTER,
-                //TODO LISTENER BUKA JEMBATAN KOMUNIKASI
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            //TODO SETELAH BERHASIL NGIRIM PARAMETER
-                            JSONObject obj = new JSONObject(response);
-                            //if no error in response
-                            if (obj.getBoolean("status")) {
-                                pDialog.dismiss();
-                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                //TODO JIKA JEMBATAN KOMUNIKASI ERROR ATAU ENGGA
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }) {
-            // TODO KODE DIBAWAH INI NGRIM PARAMETER KE URL WEB
+        ApiService.service_post.postSignUp(snik_data, susername_data, spassword_data, sconfirmpass_data).enqueue(new Callback<DefaultModel>() {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("nik", snik);
-                params.put("username", susername);
-                params.put("password", spassword);
-                return params;
+            public void onResponse(Call<DefaultModel> call, retrofit2.Response<DefaultModel> response) {
+                if(response.body().isStatus()){
+                    pDialog.dismiss();
+                    toSignIn();
+                }else{
+                    Toast.makeText(SignUpActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    pDialog.dismiss();
+                }
             }
-        };
-        AppController.getInstance(this).addToRequestQueue(stringRequest);
+
+            @Override
+            public void onFailure(Call<DefaultModel> call, Throwable t) {
+                Toast.makeText(SignUpActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void toSignIn(){
+        //TODO PINDAH INTENT KE SIGNIN
+        Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+        startActivity(intent);
     }
 }

@@ -50,15 +50,6 @@
         android:textColor="@color/black"
         android:drawableLeft="@drawable/ic_alamat"
         />
-    <Button
-        android:id="@+id/btn_profile_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="logout"
-        android:textColor="@color/colorAccent"
-        android:background="@null"
-        />
 
 </LinearLayout>
 

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.smartvillage.Fragment.request"
     android:orientation="vertical"
     android:background="@color/softblue">
 
@@ -11,8 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/layout_judul"
             android:layout_width="match_parent"
@@ -21,6 +18,7 @@
             android:textColorHint="@color/darkgrey">
 
             <EditText
+                android:id="@+id/judul_request"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Judul Pembangunan"
@@ -39,52 +37,22 @@
             android:textColor="@color/black"
             />
 
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/layout_deskripsi"
+        <EditText
+            android:id="@+id/deskripsi_request"
+            android:layout_width="match_parent"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:inputType="text" />
+        <Button
+            android:id="@+id/button_request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout_judul"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColorHint="@color/darkgrey">
-
-
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="300dp"
-                android:background="@color/white"
-                android:inputType="text" />
-
-        </android.support.design.widget.TextInputLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
-    <Button
-        android:id="@+id/button_request"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/bgbutton"
-        android:text="SUBMIT REQUEST"
-        android:textColor="@color/gold" />
-
-
-    <Button
-        android:id="@+id/button_reset"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/bgbutton"
-        android:text="RESET"
-        android:layout_marginLeft="40dp"
-        android:layout_gravity="end|bottom"
-        android:textColor="@color/gold" />
-    </LinearLayout>
-
+            android:background="@color/navy"
+            android:text="SUBMIT REQUEST"
+            android:textColor="@color/gold" />
 
     </LinearLayout>
 </FrameLayout>

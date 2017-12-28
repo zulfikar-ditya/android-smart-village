@@ -77,14 +77,6 @@
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/ic_notification"
-                android:text=""
-                android:id="@+id/notification"
-                android:textAlignment="center"/>
-
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:icon="@drawable/ic_profile"
                 android:text=""
                 android:id="@+id/profile"
@@ -98,7 +90,6 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 
 
 </LinearLayout>

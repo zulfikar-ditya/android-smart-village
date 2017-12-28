@@ -25,9 +25,11 @@ public class SplashScreenActivity extends AppCompatActivity {
             if (session.checkLogin()){
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+                finish();
             } else {
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
+                finish();
             }
             }
         }, 2000);
