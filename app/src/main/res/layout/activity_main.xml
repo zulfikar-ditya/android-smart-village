@@ -11,7 +11,7 @@
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/navy">
+        android:background="@color/biruIT">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
         android:id="@+id/appbarmenu"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:background="@color/navy">
+        android:background="@color/biruIT">
 
         <android.support.design.widget.TabLayout
 
@@ -51,18 +51,17 @@
             android:accessibilityLiveRegion="none"
 
             android:clickable="true"
-            app:tabBackground="@color/navy"
+            app:tabBackground="@color/biruIT"
             app:tabIndicatorHeight="7dp"
             app:tabIndicatorColor="@color/gold"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="#fff">
 
             <android.support.design.widget.TabItem
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_list"
-                android:text=""
+                android:text="LIST"
                 android:id="@+id/list"
                 android:textAlignment="center" />
 
@@ -70,19 +69,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_request"
-                android:text=""
+                android:text="REQUEST"
                 android:id="@+id/request"
                 android:textAlignment="center"/>
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:icon="@drawable/ic_lapor"
+                android:text="LAPOR"
+                android:id="@+id/lapor"
+                android:textAlignment="center"/>
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:icon="@drawable/ic_profile"
-                android:text=""
+                android:text="PROFILE"
                 android:id="@+id/profile"
                 android:textAlignment="center"/>
 
         </android.support.design.widget.TabLayout>
+
     </android.support.design.widget.AppBarLayout>
 
 

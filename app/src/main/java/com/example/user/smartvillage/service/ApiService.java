@@ -48,6 +48,9 @@ public class ApiService {
     public interface GetService{
         @GET("/smartvillage/api/web/v1/pembangunan")
         Call<PembangunanModel> getPembangunan(@Header("Authorization") String auth);
+
+        @GET("/smartvillage/api/web/v1/pembangunan/get-pembangunan")
+        Call<PembangunanModel> getPembangunandd (@Header("Authorization") String auth);
     }
 
 }

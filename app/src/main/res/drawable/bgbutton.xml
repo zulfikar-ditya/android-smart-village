@@ -6,7 +6,7 @@
             <!--android:startColor="#ff0"-->
             <!--android:endColor="#0ff"-->
             <!--/>-->
-        <solid android:color="#072162"/>
+        <solid android:color="#31428F"/>
         <corners android:radius="10dp"></corners>
     </shape>
 </item>
