@@ -10,12 +10,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/judul_lapor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Kategori Pembangunan :"
+                android:textSize="20dp"
+                android:inputType="text"
+                android:textColor="#000"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/spList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+            </Spinner>
+
+        </LinearLayout>
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/layout_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:textColorHint="@color/darkgrey">
+            android:textColorHint="@color/black">
 
             <EditText
                 android:id="@+id/judul_request"
@@ -46,13 +75,17 @@
             android:gravity="top"
             android:background="#BFFFFFFF"
             android:inputType="text"
-            android:minHeight="100dp" />
+            android:minHeight="900dp" />
 
         <Button
             android:id="@+id/button_request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/biruIT"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bgbutton"
             android:text="SUBMIT REQUEST"
             android:textColor="@color/gold" />
 

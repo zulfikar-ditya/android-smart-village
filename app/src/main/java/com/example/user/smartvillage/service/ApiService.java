@@ -18,7 +18,7 @@ import retrofit2.http.POST;
  */
 
 public class ApiService {
-    public static String BASE_URL = "http://192.168.43.84";
+    public static String BASE_URL = "http://159.89.194.1";
 
     public static PostService service_post = new Retrofit.Builder()
             .baseUrl(BASE_URL)

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/template"
     tools:context="com.example.user.smartvillage.Activity.dashboard_user.lapor.LaporFragment">
@@ -20,6 +21,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/judul_lapor"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -57,15 +59,37 @@
             android:gravity="top"
             android:background="#BFFFFFFF"
             android:inputType="text"
-            android:minHeight="100dp" />
+            android:minHeight="70dp" />
 
-        <Button
-            android:id="@+id/button_lapor"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/navy"
-            android:text="SUBMIT LAPOR"
-            android:textColor="@color/gold" />
+            android:textColorHint="#000">
+
+            <EditText
+                android:id="@+id/btn_up_lapor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_camera"
+                android:hint="Unggah Foto"
+                android:gravity="center"
+                android:textColor="@color/gold"
+                android:layout_margin="18dp"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/button_lapor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:background="@drawable/bgbutton"
+                android:text="SUBMIT LAPOR"
+                android:textColor="@color/gold" />
 
     </LinearLayout>
 

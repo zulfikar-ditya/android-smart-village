@@ -7,7 +7,7 @@
     tools:context="com.example.user.smartvillage.Activity.SplashScreenActivity">
 
     <ImageView
-        android:src="@drawable/splashscreen"
+        android:src="@drawable/splashscreen1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="fitXY"/>

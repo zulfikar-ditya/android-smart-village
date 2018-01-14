@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.user.smartvillage.Activity.SignInActivity"
-    android:background="@drawable/bgregister">
+    android:background="@drawable/templatebg">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/layout_username"
@@ -13,7 +13,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="120dp"
         android:textColorHint="#000">
 
         <EditText

@@ -30,7 +30,6 @@
             app:layout_constraintRight_toRightOf="@id/profile"
             android:padding="32dp"/>
 
-
     </android.support.constraint.ConstraintLayout>
 
     <TextView
@@ -39,6 +38,7 @@
         android:layout_margin="20dp"
         android:text="2103161036"
         android:textAlignment="center"
+        android:gravity="center"
         android:textSize="35dp"
         android:textStyle="bold"
         android:textColor="@color/black"
