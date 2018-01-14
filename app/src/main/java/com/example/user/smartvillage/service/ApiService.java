@@ -1,6 +1,7 @@
 package com.example.user.smartvillage.service;
 
 import com.example.user.smartvillage.Model.DefaultModel;
+import com.example.user.smartvillage.Model.KategoriPembangunanModel;
 import com.example.user.smartvillage.Model.PembangunanModel;
 import com.example.user.smartvillage.Model.User;
 
@@ -51,6 +52,9 @@ public class ApiService {
 
         @GET("/smartvillage/api/web/v1/pembangunan/get-pembangunan")
         Call<PembangunanModel> getPembangunandd (@Header("Authorization") String auth);
+
+        @GET("/smartvillage/api/web/v1/kategori-pembangunan/get-kategori-pembangunan")
+        Call<KategoriPembangunanModel> getkategori (@Header("Authorization") String auth);
     }
 
 }

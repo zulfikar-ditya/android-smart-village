@@ -62,6 +62,7 @@
                 android:textColor="@color/darkgrey"
                 android:gravity="left"
                 android:layout_weight="9"
+                android:drawableLeft="@drawable/ic_calendar"
                 android:text="start from october 10" />
 
             <TextView
@@ -72,6 +73,7 @@
                 android:layout_weight="1"
                 android:textSize="20dp"
                 android:text="15%"
+                android:drawableLeft="@drawable/ic_progress"
                 android:textColor="@color/red" />
         </LinearLayout>
 
@@ -93,6 +95,7 @@
             android:layout_marginBottom="20dp"
             android:textColor="@color/darkgrey"
             android:gravity="top"
+            android:drawableLeft="@drawable/ic_calendar"
             android:text="updated on november 10" />
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -18,6 +18,7 @@ import com.example.user.smartvillage.Activity.SignInActivity;
 import com.example.user.smartvillage.Activity.dashboard_user.lapor.LaporFragment;
 import com.example.user.smartvillage.Activity.dashboard_user.list.ListFragment;
 
+import com.example.user.smartvillage.Activity.dashboard_user.pengumuman.PengumumanFragment;
 import com.example.user.smartvillage.Activity.dashboard_user.profile.ProfileFragment;
 import com.example.user.smartvillage.Activity.dashboard_user.request.RequestFragment;
 import com.example.user.smartvillage.R;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         contents_fragment.add(new ListFragment());
         contents_fragment.add(new RequestFragment());
         contents_fragment.add(new LaporFragment());
+        contents_fragment.add(new PengumumanFragment());
         contents_fragment.add(new ProfileFragment());
 
         tab_adapter = new DashboardTabAdapter(getSupportFragmentManager(), contents_fragment);

@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/templatebg"
     tools:context="com.example.user.smartvillage.Activity.AboutActivity">
-
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:src="@drawable/name_logo"
-
         />
 
     <TextView
@@ -26,5 +25,6 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20dp"
+        android:background="@color/white"
         />
 </LinearLayout>
