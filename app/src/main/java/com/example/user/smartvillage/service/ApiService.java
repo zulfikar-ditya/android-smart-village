@@ -5,6 +5,7 @@ import com.example.user.smartvillage.Model.KategoriPembangunanModel;
 import com.example.user.smartvillage.Model.PembangunanModel;
 import com.example.user.smartvillage.Model.User;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -12,7 +13,9 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 /**
  * Created by user on 28/12/2017.
@@ -42,8 +45,14 @@ public class ApiService {
         @FormUrlEncoded
         Call<DefaultModel> postRequest(
                 @Header("Authorization") String auth,
-                @Field("judul") String judul, @Field("deskripsi") String deskripsi, @Field("kategori_pembangunan_id") String kategori_pembangunan_id
-        );
+                @Field("judul") String judul, @Field("deskripsi") String deskripsi, @Field("kategori_pembangunan_id") String kategori_pembangunan_id);
+
+        @POST("smartvillage/api/web/v1/lapor-aduan/create")
+        @FormUrlEncoded
+        Call<DefaultModel> postLapor(
+                @Header("Authorization") String auth,
+                @Field("pembangunan_id") String pembangunan_id, @Field("deskripsi") String deskripsi, @Part MultipartBody.Part file);
+
     }
 
     public interface GetService{
