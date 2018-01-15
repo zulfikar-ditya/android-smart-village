@@ -5,6 +5,6 @@ public class AppConfig {
     public static final String URL_REGISTER = ROOT_URL + "auth/register";
     public static final String URL_LOGIN= ROOT_URL + "auth/login";
     public static final String URL_GET_DATA_PEMBANGGUNAN= ROOT_URL + "pembangunan";
-    public static final String URL_PICTURE = "http://192.168.43.84/smartvillage/backend/";
+    public static final String URL_PICTURE = "http://159.89.194.1/smartvillage/backend/";
 
 }

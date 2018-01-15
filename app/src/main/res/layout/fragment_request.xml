@@ -6,9 +6,12 @@
     android:orientation="vertical"
     android:background="@drawable/template">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -75,7 +78,7 @@
             android:gravity="top"
             android:background="#BFFFFFFF"
             android:inputType="text"
-            android:minHeight="900dp" />
+            android:minHeight="240dp" />
 
         <Button
             android:id="@+id/button_request"
@@ -88,6 +91,7 @@
             android:background="@drawable/bgbutton"
             android:text="SUBMIT REQUEST"
             android:textColor="@color/gold" />
-
     </LinearLayout>
+
+    </ScrollView>
 </FrameLayout>

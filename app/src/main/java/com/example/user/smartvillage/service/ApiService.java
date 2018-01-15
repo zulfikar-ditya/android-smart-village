@@ -47,11 +47,11 @@ public class ApiService {
                 @Header("Authorization") String auth,
                 @Field("judul") String judul, @Field("deskripsi") String deskripsi, @Field("kategori_pembangunan_id") String kategori_pembangunan_id);
 
-        @POST("smartvillage/api/web/v1/lapor-aduan/create")
-        @FormUrlEncoded
-        Call<DefaultModel> postLapor(
-                @Header("Authorization") String auth,
-                @Field("pembangunan_id") String pembangunan_id, @Field("deskripsi") String deskripsi, @Part MultipartBody.Part file);
+//        @POST("smartvillage/api/web/v1/lapor-aduan/create")
+//        @FormUrlEncoded
+//        Call<DefaultModel> postLapor(
+//                @Header("Authorization") String auth,
+//                @Field("deskripsi") String deskripsi);
 
     }
 

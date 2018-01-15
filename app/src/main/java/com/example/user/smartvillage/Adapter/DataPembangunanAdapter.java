@@ -2,6 +2,7 @@ package com.example.user.smartvillage.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,7 @@ public class DataPembangunanAdapter extends RecyclerView.Adapter<DataPembangunan
         partbulan2[1]=pemisahbulan(partbulan2[1]);
         holder.tvUpdatePembangunan.setText(partbulan2[2]+" "+partbulan2[1]+" "+partbulan2[0]);
         holder.tvProsentase.setText(String.valueOf(list_data_pembangunan.getData().get(position).getProsentase())+"%");
-
+        Log.d("gambar", "onBindViewHolder: "+AppConfig.URL_PICTURE+list_data_pembangunan.getData().get(position).getFoto());
         Glide.with(mContext)
                 .load(AppConfig.URL_PICTURE+list_data_pembangunan.getData().get(position).getFoto())
                 .centerCrop()
