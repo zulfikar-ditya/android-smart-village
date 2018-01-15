@@ -15,4 +15,5 @@ public class DefaultModel {
     public String getMessage() {
         return message;
     }
+
 }

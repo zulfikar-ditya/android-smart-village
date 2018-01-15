@@ -64,6 +64,9 @@ public class ApiService {
 
         @GET("/smartvillage/api/web/v1/kategori-pembangunan/get-kategori-pembangunan")
         Call<KategoriPembangunanModel> getkategori (@Header("Authorization") String auth);
+
+        @GET("/smartvillage/api/web/v1/pengumuman/get-pengumuman")
+        Call<DefaultModel> getPengumuman(@Header("Authorization") String auth);
     }
 
 }

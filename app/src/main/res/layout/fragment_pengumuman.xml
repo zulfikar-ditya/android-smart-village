@@ -2,12 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/template"
     tools:context="com.example.user.smartvillage.Activity.dashboard_user.pengumuman.PengumumanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/tv_pengumuman"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#BFFFFFFF"
+            android:textColor="@color/black"
+            android:layout_margin="18dp"
+            >
+        </TextView>
+
+    </ScrollView>
 </FrameLayout>
