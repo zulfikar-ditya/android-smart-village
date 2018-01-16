@@ -85,13 +85,15 @@ public class LaporFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String set_deskripsi = et_deskripsi.getText().toString();
-                ApiService.service_post.postLapor("Bearer bmFuZGE=", set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
+                ApiService.service_post.postLapor("Bearer bmFuZGE=",set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
                     @Override
                     public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
                         Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onFailure(Call<DefaultModel> call, Throwable t) {
+                        Log.d("lapor", "onFailure: " + t.getMessage());
+                        t.printStackTrace();
                     }
                 });
             }
