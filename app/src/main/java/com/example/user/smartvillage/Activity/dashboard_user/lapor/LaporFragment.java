@@ -79,23 +79,23 @@ public class LaporFragment extends Fragment {
         });
 
 
-//        Button bt_lapor = (Button) view.findViewById(R.id.button_lapor);
-//        final EditText et_deskripsi = (EditText) view.findViewById(R.id.deskripsi_lapor);
-//        bt_lapor.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String set_deskripsi = et_deskripsi.getText().toString();
-//                ApiService.service_post.postLapor("Bearer bmFuZGE=", set_deskripsi).enqueue(new Callback<DefaultModel>() {
-//                    @Override
-//                    public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
-//                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                    @Override
-//                    public void onFailure(Call<DefaultModel> call, Throwable t) {
-//                    }
-//                });
-//            }
-//        });
+        Button bt_lapor = (Button) view.findViewById(R.id.button_lapor);
+        final EditText et_deskripsi = (EditText) view.findViewById(R.id.deskripsi_lapor);
+        bt_lapor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String set_deskripsi = et_deskripsi.getText().toString();
+                ApiService.service_post.postLapor("Bearer bmFuZGE=", set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
+                    @Override
+                    public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
+                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onFailure(Call<DefaultModel> call, Throwable t) {
+                    }
+                });
+            }
+        });
 
         return view;
     }
