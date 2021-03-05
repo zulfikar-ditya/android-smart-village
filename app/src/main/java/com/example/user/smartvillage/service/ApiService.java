@@ -22,8 +22,7 @@ import retrofit2.http.Part;
  */
 
 public class ApiService {
-    public static String BASE_URL = "http://159.89.194.1";
-
+    public static String BASE_URL = "http://192.168.1.7/yii/smart_village/frontend/web/";
     public static PostService service_post = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build().create(ApiService.PostService.class);
@@ -33,39 +32,49 @@ public class ApiService {
             .addConverterFactory(GsonConverterFactory.create()).build().create(ApiService.GetService.class);
 
     public interface PostService{
-        @POST("/smartvillage/api/web/v1/auth/login")
+        @POST("index.php?r=API%2Fauth%2Flogin")
         @FormUrlEncoded
-        Call<User> postSignIn(@Field("username") String username, @Field("password") String password);
+        Call<User> postSignIn(
+                @Field("LoginForm[username]") String username,
+                @Field("LoginForm[password]") String password
+        );
 
-        @POST("/smartvillage/api/web/v1/auth/register")
+        @POST("index.php?r=API/auth/signup")
         @FormUrlEncoded
-        Call<DefaultModel> postSignUp(@Field("nik") String nik, @Field("username") String username, @Field("password") String password, @Field("password2") String password2);
+        Call<DefaultModel> postSignUp(
+                @Field("SignupForm[email]") String nik,
+                @Field("SignupForm[username]") String username,
+                @Field("SignupForm[password]") String password
+        );
 
-        @POST("smartvillage/api/web/v1/request-pembangunan/create")
+        @POST("index.php?r=API%2Frequest-pembangunan%2Fcreate")
         @FormUrlEncoded
         Call<DefaultModel> postRequest(
                 @Header("Authorization") String auth,
-                @Field("judul") String judul, @Field("deskripsi") String deskripsi, @Field("kategori_pembangunan_id") String kategori_pembangunan_id);
+                @Field("RequestPembangunan[judul]") String judul,
+                @Field("RequestPembangunan[deskripsi]") String deskripsi,
+                @Field("RequestPembangunan[kategori_pembangunan_id]") String kategori_pembangunan_id
+        );
 
-        @POST("smartvillage/api/web/v1/lapor-aduan/create")
+        @POST("index.php?r=API%2Flapor-aduan%2Fcreate")
         @FormUrlEncoded
         Call<DefaultModel> postLapor(
                 @Header("Authorization") String auth,
-                @Field("deskripsi") String deskripsi, @Field("pembangunan_id") String pembangunan_id);
+                @Field("LaporAduan[deskripsi]") String deskripsi, @Field("LaporAduan[pembangunan_id]") String pembangunan_id);
 
     }
 
     public interface GetService{
-        @GET("/smartvillage/api/web/v1/pembangunan")
+        @GET("index.php?r=API%2Fpembangunan")
         Call<PembangunanModel> getPembangunan(@Header("Authorization") String auth);
 
-        @GET("/smartvillage/api/web/v1/pembangunan/get-pembangunan")
+        @GET("index.php?r=API%2Fpembangunan")
         Call<PembangunanModel> getPembangunandd (@Header("Authorization") String auth);
 
-        @GET("/smartvillage/api/web/v1/kategori-pembangunan/get-kategori-pembangunan")
+        @GET("index.php?r=API%2Fkategori-pembangunan")
         Call<KategoriPembangunanModel> getkategori (@Header("Authorization") String auth);
 
-        @GET("/smartvillage/api/web/v1/pengumuman/get-pengumuman")
+        @GET("index.php?r=API%2Fpengumuman")
         Call<DefaultModel> getPengumuman(@Header("Authorization") String auth);
     }
 

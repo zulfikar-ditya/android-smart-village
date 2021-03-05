@@ -7,7 +7,7 @@
     tools:context="com.example.user.smartvillage.Activity.SignInActivity"
     android:background="@drawable/templatebg">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_username"
         android:layout_width="fill_parent"
         android:layout_marginLeft="30dp"
@@ -22,9 +22,9 @@
             android:layout_height="wrap_content"
             android:hint="Username"
             android:inputType="text"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_password"
         android:layout_below="@id/layout_username"
         android:layout_width="fill_parent"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/password"
         android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:background="@drawable/bgbutton"

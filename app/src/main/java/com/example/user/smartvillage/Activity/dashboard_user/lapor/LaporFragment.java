@@ -2,7 +2,7 @@ package com.example.user.smartvillage.Activity.dashboard_user.lapor;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.user.smartvillage.Adapter.DataPembangunanAdapter;
+import com.example.user.smartvillage.Activity.SignInActivity;
 import com.example.user.smartvillage.Model.DataPembangunanModel;
 import com.example.user.smartvillage.Model.DefaultModel;
 import com.example.user.smartvillage.Model.PembangunanModel;
@@ -84,18 +83,27 @@ public class LaporFragment extends Fragment {
         bt_lapor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String set_deskripsi = et_deskripsi.getText().toString();
-                ApiService.service_post.postLapor("Bearer bmFuZGE=",set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
-                    @Override
-                    public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
-                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                    @Override
-                    public void onFailure(Call<DefaultModel> call, Throwable t) {
-                        Log.d("lapor", "onFailure: " + t.getMessage());
-                        t.printStackTrace();
-                    }
-                });
+                final String set_deskripsi = et_deskripsi.getText().toString();
+                if (set_deskripsi.isEmpty()) {
+                    Toast.makeText(getActivity(), "Data Kosong", Toast.LENGTH_SHORT).show();
+                } else {
+                    ApiService.service_post.postLapor(
+                            "Bearer bmFuZGE=",
+                            set_deskripsi, "1"
+                    ).enqueue(new Callback<DefaultModel>() {
+                        @Override
+                        public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
+                            System.out.println(response);
+                            Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        @Override
+                        public void onFailure(Call<DefaultModel> call, Throwable t) {
+                            Toast.makeText(getActivity(), "Error!!!", Toast.LENGTH_SHORT).show();
+                            Log.d("lapor", "onFailure: " + t.getMessage());
+                            t.printStackTrace();
+                        }
+                    });
+                }
             }
         });
 

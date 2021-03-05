@@ -7,6 +7,9 @@ package com.example.user.smartvillage.Model;
 public class DefaultModel {
     private boolean status;
     private String message;
+    private String isi;
+    private String date;
+    private String perihal;
 
     public boolean isStatus() {
         return status;
@@ -16,4 +19,15 @@ public class DefaultModel {
         return message;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public String getIsi() {
+        return isi;
+    }
+
+    public String getPerihal() {
+        return perihal;
+    }
 }

@@ -7,8 +7,8 @@
     tools:context="com.example.user.smartvillage.Activity.SignUpActivity"
     android:background="@drawable/templatebg">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/layout_NIK_signup"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_EMAIL_signup"
         android:layout_width="fill_parent"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -16,17 +16,18 @@
         android:layout_marginTop="30dp"
         android:textColorHint="#000"
         >
+
         <EditText
-            android:id="@+id/Signup_NIK"
+            android:id="@+id/Signup_EMAIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="NIK"
-            android:inputType="number"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
 
             />
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_username_signup"
         android:layout_width="fill_parent"
         android:layout_marginLeft="30dp"
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:textColorHint="#000"
-        android:layout_below="@id/layout_NIK_signup"
+        android:layout_below="@id/layout_EMAIL_signup"
         >
         <EditText
             android:id="@+id/Signup_username"
@@ -45,8 +46,8 @@
 
             />
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_password_signup"
         android:layout_width="fill_parent"
         android:layout_marginLeft="30dp"
@@ -65,9 +66,9 @@
 
             />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_Konfirmasi_password_signup"
         android:layout_width="fill_parent"
         android:layout_marginLeft="30dp"
@@ -85,7 +86,7 @@
             android:inputType="textPassword"
 
             />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button_signup"

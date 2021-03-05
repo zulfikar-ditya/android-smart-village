@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SmartVillage.iml" filepath="$PROJECT_DIR$/SmartVillage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartVillage2.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartVillage2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SmartVillage2.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SmartVillage2.app.iml" />
     </modules>
   </component>
 </project>

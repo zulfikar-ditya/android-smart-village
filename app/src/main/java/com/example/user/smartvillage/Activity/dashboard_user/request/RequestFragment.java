@@ -1,8 +1,9 @@
 package com.example.user.smartvillage.Activity.dashboard_user.request;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.user.smartvillage.Model.DataPembangunanModel;
+import com.example.user.smartvillage.Activity.SignInActivity;
 import com.example.user.smartvillage.Model.DefaultModel;
 import com.example.user.smartvillage.Model.Kategori;
 import com.example.user.smartvillage.Model.KategoriPembangunanModel;
-import com.example.user.smartvillage.Model.PembangunanModel;
 import com.example.user.smartvillage.R;
 import com.example.user.smartvillage.service.ApiService;
 
@@ -58,16 +58,22 @@ public class RequestFragment extends Fragment {
                   public void onClick(View v) {
                      String set_judul = et_judul.getText().toString();
                      String set_deskripsi = et_deskripsi.getText().toString();
-                     ApiService.service_post.postRequest("Bearer bmFuZGE=", set_judul, set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
-                     @Override
-                     public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
-                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                     if (set_judul.isEmpty() && set_deskripsi.isEmpty()) {
+                         Toast.makeText(getActivity(), "Data Kosong", Toast.LENGTH_SHORT).show();
+                     } else {
+                         ApiService.service_post.postRequest("Bearer bmFuZGE=", set_judul, set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
+                             @Override
+                             public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
+                                 System.out.println("response:  " + response);
+                                 Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                             }
+                             @Override
+                             public void onFailure(Call<DefaultModel> call, Throwable t) {
+                                 t.printStackTrace();
+                             }
+                         });
                      }
-                     @Override
-                     public void onFailure(Call<DefaultModel> call, Throwable t) {
-                     }
-                     });
-                      }
+            }
                      });
 
         // mengeset listener untuk mengetahui saat item dipilih

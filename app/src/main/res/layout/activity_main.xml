@@ -7,7 +7,7 @@
     tools:context="com.example.user.smartvillage.Activity.dashboard_user.MainActivity"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -35,15 +35,15 @@
             android:src="@drawable/ic_more_options" />
 
     </RelativeLayout>
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarmenu"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@color/biruIT">
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -56,7 +56,7 @@
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="#fff">
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_list"
@@ -64,7 +64,7 @@
                 android:id="@+id/list"
                 android:textAlignment="center" />
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_request"
@@ -72,7 +72,7 @@
                 android:id="@+id/request"
                 android:textAlignment="center"/>
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_lapor"
@@ -80,7 +80,7 @@
                 android:id="@+id/lapor"
                 android:textAlignment="center"/>
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_pengumuman"
@@ -88,7 +88,7 @@
                 android:id="@+id/pengumuman"
                 android:textAlignment="center"/>
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_profile"
@@ -96,12 +96,12 @@
                 android:id="@+id/profile"
                 android:textAlignment="center"/>
 
-        </android.support.design.widget.TabLayout>
+        </com.google.android.material.tabs.TabLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
