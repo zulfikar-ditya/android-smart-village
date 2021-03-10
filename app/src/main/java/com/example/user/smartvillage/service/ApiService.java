@@ -22,7 +22,7 @@ import retrofit2.http.Part;
  */
 
 public class ApiService {
-    public static String BASE_URL = "http://192.168.1.7/yii/smart_village/frontend/web/";
+    public static String BASE_URL = "http://192.168.1.14/yii/smart_village/frontend/web/";
     public static PostService service_post = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build().create(ApiService.PostService.class);
@@ -53,14 +53,15 @@ public class ApiService {
                 @Header("Authorization") String auth,
                 @Field("RequestPembangunan[judul]") String judul,
                 @Field("RequestPembangunan[deskripsi]") String deskripsi,
-                @Field("RequestPembangunan[kategori_pembangunan_id]") String kategori_pembangunan_id
+                @Field("RequestPembangunan[kategori_pembangunan_id]") Integer kategori_pembangunan_id
         );
 
         @POST("index.php?r=API%2Flapor-aduan%2Fcreate")
         @FormUrlEncoded
         Call<DefaultModel> postLapor(
                 @Header("Authorization") String auth,
-                @Field("LaporAduan[deskripsi]") String deskripsi, @Field("LaporAduan[pembangunan_id]") String pembangunan_id);
+                @Field("LaporAduan[deskripsi]") String deskripsi,
+                @Field("LaporAduan[pembangunan_id]") Integer pembangunan_id);
 
     }
 

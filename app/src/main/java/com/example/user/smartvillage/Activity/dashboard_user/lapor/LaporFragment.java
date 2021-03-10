@@ -80,16 +80,21 @@ public class LaporFragment extends Fragment {
 
         Button bt_lapor = (Button) view.findViewById(R.id.button_lapor);
         final EditText et_deskripsi = (EditText) view.findViewById(R.id.deskripsi_lapor);
+        final Spinner id_kategori = (Spinner) view.findViewById(R.id.spList);
         bt_lapor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String set_deskripsi = et_deskripsi.getText().toString();
+                final int KategoriId = (int) id_kategori.getSelectedItemId();
+                System.out.println(KategoriId);
                 if (set_deskripsi.isEmpty()) {
                     Toast.makeText(getActivity(), "Data Kosong", Toast.LENGTH_SHORT).show();
                 } else {
                     ApiService.service_post.postLapor(
                             "Bearer bmFuZGE=",
-                            set_deskripsi, "1"
+                            set_deskripsi,
+//                            1
+                            KategoriId
                     ).enqueue(new Callback<DefaultModel>() {
                         @Override
                         public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {

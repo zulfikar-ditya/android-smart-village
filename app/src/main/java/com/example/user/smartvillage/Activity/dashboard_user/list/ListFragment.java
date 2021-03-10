@@ -14,6 +14,8 @@ import com.example.user.smartvillage.Model.PembangunanModel;
 import com.example.user.smartvillage.R;
 import com.example.user.smartvillage.service.ApiService;
 
+import java.util.Arrays;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,7 +40,7 @@ public class ListFragment extends Fragment {
         ApiService.service_get.getPembangunan("Bearer bmFuZGE=").enqueue(new Callback<PembangunanModel>() {
             @Override
             public void onResponse(Call<PembangunanModel> call, Response<PembangunanModel> response) {
-                System.out.println(response);
+                System.out.println(response.body().getData());
                 listdataPembangunan = response.body();
                 DataPembangunanAdapter adapter = new DataPembangunanAdapter(getContext(), listdataPembangunan);
                 rvDataPembangunan.setAdapter(adapter);
@@ -47,6 +49,7 @@ public class ListFragment extends Fragment {
             @Override
             public void onFailure(Call<PembangunanModel> call, Throwable t) {
                 t.printStackTrace();
+                System.out.println(t.getMessage());
             }
         });
 

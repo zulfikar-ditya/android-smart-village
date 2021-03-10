@@ -51,11 +51,6 @@ public class DataPembangunanAdapter extends RecyclerView.Adapter<DataPembangunan
         holder.tvUpdatePembangunan.setText(partbulan2[2]+" "+partbulan2[1]+" "+partbulan2[0]);
         holder.tvProsentase.setText(String.valueOf(list_data_pembangunan.getData().get(position).getProsentase())+"%");
         Log.d("gambar", "onBindViewHolder: "+AppConfig.URL_PICTURE+list_data_pembangunan.getData().get(position).getFoto());
-        Glide.with(mContext)
-                .load(AppConfig.URL_PICTURE+list_data_pembangunan.getData().get(position).getFoto())
-                .centerCrop()
-                .crossFade().placeholder(R.drawable.suramadu3)
-                .into(holder.imagePembangunan);
     }
 
     @Override
@@ -76,7 +71,6 @@ public class DataPembangunanAdapter extends RecyclerView.Adapter<DataPembangunan
              tvStartPembangunan = (TextView) itemView.findViewById(R.id.start_pembangunan);
              tvUpdatePembangunan = (TextView) itemView.findViewById(R.id.update_pembangunan);
              tvKeterangan = (TextView) itemView.findViewById(R.id.keterangan_pembangunan);
-             imagePembangunan = (ImageView) itemView.findViewById(R.id.gambar_pembangunan);
         }
     }
 

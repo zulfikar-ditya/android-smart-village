@@ -53,15 +53,21 @@ public class RequestFragment extends Fragment {
         Button bt_request = (Button) request.findViewById(R.id.button_request);
         final EditText et_judul = (EditText) request.findViewById(R.id.judul_request);
         final EditText et_deskripsi = (EditText) request.findViewById(R.id.deskripsi_request);
+        final Spinner kategoriPembangunanId = (Spinner) request.findViewById(R.id.spList);
         bt_request.setOnClickListener(new View.OnClickListener() {
             @Override
                   public void onClick(View v) {
                      String set_judul = et_judul.getText().toString();
                      String set_deskripsi = et_deskripsi.getText().toString();
+                     int set_kategoriPembangunan = (int) kategoriPembangunanId.getSelectedItemId();
                      if (set_judul.isEmpty() && set_deskripsi.isEmpty()) {
                          Toast.makeText(getActivity(), "Data Kosong", Toast.LENGTH_SHORT).show();
                      } else {
-                         ApiService.service_post.postRequest("Bearer bmFuZGE=", set_judul, set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
+                         ApiService.service_post.postRequest("Bearer bmFuZGE=",
+                                 set_judul,
+                                 set_deskripsi,
+                                 set_kategoriPembangunan
+                         ).enqueue(new Callback<DefaultModel>() {
                              @Override
                              public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
                                  System.out.println("response:  " + response);

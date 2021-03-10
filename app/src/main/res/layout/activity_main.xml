@@ -11,7 +11,7 @@
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/biruIT">
+        android:background="#34AFE0">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:padding="1dp"
             android:id="@+id/options"
             android:layout_alignParentRight="true"
-            android:src="@drawable/ic_more_options" />
+            android:src="@drawable/drop_down" />
 
     </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -52,14 +52,14 @@
             android:clickable="true"
             app:tabBackground="@color/biruIT"
             app:tabIndicatorHeight="7dp"
-            app:tabIndicatorColor="@color/gold"
+            app:tabIndicatorColor="@color/colorAccent"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="#fff">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/ic_list"
+                android:icon="@drawable/list_1"
                 android:text=""
                 android:id="@+id/list"
                 android:textAlignment="center" />
@@ -104,7 +104,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />l
 
 
 </LinearLayout>

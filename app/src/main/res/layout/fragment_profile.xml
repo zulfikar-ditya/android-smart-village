@@ -5,49 +5,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.user.smartvillage.Activity.dashboard_user.profile.ProfileFragment"
     android:orientation="vertical"
-    android:background="@drawable/template">
+    android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp">
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/profile"
-            android:layout_width="162dp"
-            android:layout_height="170dp"
-            android:paddingTop="20dp"
-            android:src="@drawable/profil1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:text="Admin"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center_vertical"
+            android:text="admin@gmail.com"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:background="#C7C8C9"
-        android:gravity="center"
-        android:text="Admin"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#BFFFFFFF"
-        android:drawableLeft="@drawable/ic_name"
-        android:gravity="center_vertical"
-        android:text="admin@gmail.com"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:src="@drawable/man_thingking" />
 
 </LinearLayout>
 

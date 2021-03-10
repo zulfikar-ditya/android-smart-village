@@ -85,15 +85,19 @@
 
             <Button
                 android:id="@+id/button_lapor"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:background="@drawable/bgbutton"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/bgbutton3"
                 android:text="SUBMIT LAPOR"
-                android:textColor="@color/gold" />
+                android:textColor="@color/white" />
 
     </LinearLayout>
 
